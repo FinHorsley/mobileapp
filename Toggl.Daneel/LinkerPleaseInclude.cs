@@ -140,11 +140,6 @@ namespace Toggl.Daneel
             injector = new MvxPropertyInjector();
         }
 
-        public void Include(INotifyPropertyChanged changed)
-        {
-            changed.PropertyChanged += (sender, e) => { var test = e.PropertyName; };
-        }
-
         public void Include(MvxUIPageControlCurrentPageTargetBinding binding)
         {
             binding = new MvxUIPageControlCurrentPageTargetBinding(null, null);

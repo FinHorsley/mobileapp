@@ -107,13 +107,6 @@ namespace Toggl.Giskard
         public void Include(MvxPropertyInjector injector)
         {
             injector = new MvxPropertyInjector ();
-        } 
-
-        public void Include(System.ComponentModel.INotifyPropertyChanged changed)
-        {
-            changed.PropertyChanged += (sender, e) =>  {
-                var test = e.PropertyName;
-            };
         }
         
         public void Include(MvxTaskBasedBindingContext context)
