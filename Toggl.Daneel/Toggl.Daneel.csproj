@@ -739,7 +739,6 @@
     <Compile Include="ViewControllers\EditDurationViewController.designer.cs">
       <DependentUpon>EditDurationViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Converters\TimeSpanToViewHeightConverter.cs" />
     <Compile Include="ViewControllers\SelectDateTimeViewController.cs" />
     <Compile Include="ViewControllers\SelectDateTimeViewController.designer.cs">
       <DependentUpon>SelectDateTimeViewController.cs</DependentUpon>
@@ -749,7 +748,6 @@
     <Compile Include="ViewControllers\SelectProjectViewController.designer.cs">
       <DependentUpon>SelectProjectViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Combiners\ProjectTaskClientValueCombiner.cs" />
     <Compile Include="Extensions\DateExtensions.cs" />
     <Compile Include="ViewControllers\SelectTagsViewController.cs" />
     <Compile Include="ViewControllers\SelectTagsViewController.designer.cs">
@@ -795,9 +793,7 @@
     <Compile Include="ViewControllers\EditProjectViewController.designer.cs">
       <DependentUpon>EditProjectViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Converters\AddNewAttributedStringConverter.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
-    <Compile Include="Combiners\ProjectSelectedColorValueCombiner.cs" />
     <Compile Include="Extensions\TableViewExtensions.cs" />
     <Compile Include="ViewControllers\SelectColorViewController.cs" />
     <Compile Include="ViewControllers\SelectColorViewController.designer.cs">
@@ -885,7 +881,6 @@
     </Compile>
     <Compile Include="ViewSources\ReportsCalendarCollectionViewSource.cs" />
     <Compile Include="ReportsCalendarCollectionViewLayout.cs" />
-    <Compile Include="Converters\ReportsCalendarRowCountToCalendarHeightConverter.cs" />
     <Compile Include="Views\Reports\ReportsCalendarViewCell.cs" />
     <Compile Include="Views\Reports\ReportsCalendarViewCell.designer.cs">
       <DependentUpon>ReportsCalendarViewCell.cs</DependentUpon>
@@ -896,10 +891,7 @@
       <DependentUpon>ReportsCalendarQuickSelectViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RoundedView.cs" />
-    <Compile Include="Combiners\ReportsCalendarCellTextColorValueCombiner.cs" />
     <Compile Include="Views\Reports\PieChartView.cs" />
-    <Compile Include="Converters\ReportTimeSpanLabelValueConverter.cs" />
-    <Compile Include="Converters\ReportPercentageLabelValueConverter.cs" />
     <Compile Include="Views\Reports\PercentageView.cs" />
     <Compile Include="Services\ITopViewControllerProvider.cs" />
     <Compile Include="Presentation\NestedPresentationInfo.cs" />
@@ -969,7 +961,6 @@
       <DependentUpon>TimeEntryMockView.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\OnboardingExtensions.cs" />
-    <Compile Include="Converters\TimeFormatToLocaleValueConverter.cs" />
     <Compile Include="Extensions\LabelExtensions.cs" />
     <Compile Include="ViewControllers\Settings\LicensesViewController.cs" />
     <Compile Include="ViewControllers\Settings\SettingsViewController.cs" />
