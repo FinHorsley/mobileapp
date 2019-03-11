@@ -5,7 +5,6 @@ using System.Reactive.Linq;
 using System.Threading;
 using CoreGraphics;
 using Foundation;
-using MvvmCross.Binding.BindingContext;
 using MvvmCross.Plugin.Color.Platforms.Ios;
 using Toggl.Daneel.ExtensionKit;
 using Toggl.Daneel.Extensions;
