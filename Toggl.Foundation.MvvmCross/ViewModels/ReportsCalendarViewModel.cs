@@ -51,6 +51,7 @@ namespace Toggl.Foundation.MvvmCross.ViewModels
         public IObservable<CalendarMonth> CurrentMonthObservable { get; private set; }
 
         private readonly ISubject<int> currentPageSubject = new Subject<int>();
+        private readonly ISubject<int> monthSubject = new Subject<int>();
 
         public IObservable<int> CurrentPageObservable { get; }
 
@@ -103,6 +104,11 @@ namespace Toggl.Foundation.MvvmCross.ViewModels
             currentPageSubject.OnNext(newPage);
         }
 
+        public void UpdateMonth(int newPage)
+        {
+            monthSubject.OnNext(newPage);
+        }
+
         public override void Prepare()
         {
             base.Prepare();
@@ -137,7 +143,10 @@ namespace Toggl.Foundation.MvvmCross.ViewModels
                 (months, page) => months[page].RowCount)
                 .Select(CommonFunctions.Identity);
 
-            CurrentMonthObservable = CurrentPageObservable.Select(convertPageIndexToCalendarMonth);
+            CurrentMonthObservable = monthSubject
+                .AsObservable()
+                .StartWith(MonthsToShow - 1)
+                .Select(convertPageIndexToCalendarMonth);
 
             QuickSelectShortcutsObservable = beginningOfWeekObservable.Select(createQuickSelectShortcuts);
 
