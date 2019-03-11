@@ -12,20 +12,9 @@ namespace Toggl.Daneel
     [Preserve(AllMembers = true)]
     public sealed class LinkerPleaseInclude
     {
-        public void Include(MvxPropertyInjector injector)
-        {
-            injector = new MvxPropertyInjector();
-        }
-
         public void Include(MvxViewModelViewTypeFinder typeFinder)
         {
             typeFinder = new MvxViewModelViewTypeFinder(null, null);
-        }
-
-        public void Include(MvxNativeColorValueConverter converter)
-        {
-            converter.Convert(null, null, null, null);
-            converter.ConvertBack(null, null, null, null);
         }
 
         public void Include(ConsoleColor color)
