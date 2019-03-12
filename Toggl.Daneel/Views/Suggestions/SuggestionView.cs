@@ -44,7 +44,7 @@ namespace Toggl.Daneel
             DescriptionLabel.Text = Suggestion.Description;
 
             var hasProject = Suggestion.ProjectId != null;
-            DescriptionTopDistanceConstraint.Constant = hasProject ? hasProjectDistance : noProjectDistance;
+            ProjectView.Hidden = !hasProject;
 
             if (!hasProject)
             {
