@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -41,13 +41,13 @@
                                             <rect key="frame" x="0.0" y="9" width="6" height="6"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Marketing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebs-ES-eMx">
-                                            <rect key="frame" x="8" y="3" width="274" height="18"/>
+                                            <rect key="frame" x="8" y="3" width="274.33333333333331" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.2932400173611111" green="0.61116536458333337" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFj-I8-nFs">
-                                            <rect key="frame" x="286" y="3" width="37.5" height="18"/>
+                                            <rect key="frame" x="286.33333333333331" y="3" width="37.333333333333314" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.36862745098039218" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <variation key="heightClass=regular-widthClass=regular" axis="horizontal" distribution="equalSpacing"/>
+                            <variation key="heightClass=regular-widthClass=regular" axis="horizontal" distribution="fillEqually" spacing="80"/>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,14 +79,26 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="AgO-D8-qST" firstAttribute="trailing" secondItem="kjc-Uq-6AB" secondAttribute="leading" id="09L-Gb-GGo"/>
                 <constraint firstAttribute="trailing" secondItem="kjc-Uq-6AB" secondAttribute="trailing" id="CwN-qs-Yoh"/>
                 <constraint firstItem="AgO-D8-qST" firstAttribute="top" secondItem="1" secondAttribute="top" constant="11" id="aLO-F3-y1a"/>
                 <constraint firstAttribute="bottom" secondItem="AgO-D8-qST" secondAttribute="bottom" constant="11" id="am8-PH-CXh"/>
                 <constraint firstItem="kjc-Uq-6AB" firstAttribute="centerY" secondItem="1" secondAttribute="centerY" id="l16-2Q-WD7"/>
-                <constraint firstItem="kjc-Uq-6AB" firstAttribute="leading" secondItem="AgO-D8-qST" secondAttribute="trailing" id="xa1-rq-hk3"/>
+                <constraint firstItem="AgO-D8-qST" firstAttribute="width" secondItem="1" secondAttribute="width" multiplier="0.75" id="mhj-pg-akM"/>
                 <constraint firstItem="AgO-D8-qST" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="16" id="yDl-NG-1lj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="mhj-pg-akM"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="constraints">
+                    <exclude reference="09L-Gb-GGo"/>
+                    <include reference="mhj-pg-akM"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="ClientLabel" destination="PFj-I8-nFs" id="ycp-kC-xir"/>
                 <outlet property="DescriptionLabel" destination="D7P-XK-5vZ" id="JbQ-Hd-eIn"/>
