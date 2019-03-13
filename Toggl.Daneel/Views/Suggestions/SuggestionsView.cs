@@ -19,7 +19,8 @@ namespace Toggl.Daneel.Suggestions
     {
         private const float titleSize = 12;
         private const float sideMargin = 16;
-        private const float suggestionHeight = 64;
+        private const float suggestionHeightMobile = 64;
+        private const float suggestionHeightTablet = 48;
         private const float distanceAboveTitleLabel = 20;
         private const float distanceBelowTitleLabel = 16;
         private const float distanceBetweenSuggestions = 12;
@@ -27,6 +28,7 @@ namespace Toggl.Daneel.Suggestions
         private readonly UILabel titleLabel = new UILabel();
 
         private NSLayoutConstraint heightConstraint;
+        private float suggestionHeight;
 
         public ISubject<Suggestion> SuggestionTapped { get; } = new Subject<Suggestion>();
 
@@ -42,7 +44,7 @@ namespace Toggl.Daneel.Suggestions
         public override void MovedToSuperview()
         {
             base.MovedToSuperview();
-             
+
             TopAnchor.ConstraintEqualTo(Superview.TopAnchor).Active = true;
             WidthAnchor.ConstraintEqualTo(Superview.WidthAnchor).Active = true;
             CenterXAnchor.ConstraintEqualTo(Superview.CenterXAnchor).Active = true;
@@ -63,6 +65,11 @@ namespace Toggl.Daneel.Suggestions
                     view.RemoveFromSuperview();
                 }
             }
+
+            suggestionHeight = TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular
+                               && TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
+                               ? suggestionHeightTablet
+                               : suggestionHeightMobile;
 
             for (int i = 0; i < suggestions.Length; i++)
             {
