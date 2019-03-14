@@ -299,7 +299,18 @@ namespace Toggl.Daneel.ViewControllers
 
         public override void ViewWillLayoutSubviews()
         {
+            base.ViewWillLayoutSubviews();
             adjustHeight();
+
+            if (TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
+                && TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular)
+            {
+                ConfirmButton.SetTitleColor(Color.EditTimeEntry.TabletConfirmButtonText.ToNativeColor(), UIControlState.Normal);
+            }
+            else
+            {
+                ConfirmButton.SetTitleColor(Color.EditTimeEntry.MobileConfirmButtonText.ToNativeColor(), UIControlState.Normal);
+            }
         }
 
         public async Task<bool> Dismiss()

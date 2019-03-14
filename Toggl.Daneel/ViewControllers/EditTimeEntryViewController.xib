@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -65,7 +65,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqc-QZ-Ds5">
-                    <rect key="frame" x="16" y="858" width="96" height="40"/>
+                    <rect key="frame" x="112" y="858" width="96" height="40"/>
                     <color key="backgroundColor" red="0.70980392156862748" green="0.73725490196078436" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                     <accessibility key="accessibilityConfiguration" label="EditTimeEntryDelete"/>
                     <constraints>
@@ -81,7 +81,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PY-gD-iJQ">
-                    <rect key="frame" x="128" y="858" width="176" height="40"/>
+                    <rect key="frame" x="187" y="0.0" width="117" height="40"/>
                     <color key="backgroundColor" red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                     <accessibility key="accessibilityConfiguration" label="EditTimeEntryConfirm"/>
                     <constraints>
@@ -95,6 +95,9 @@
                             <integer key="value" value="8"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <nil key="backgroundColor"/>
+                    </variation>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp0-YW-3Bg">
                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -606,17 +609,34 @@
                 <constraint firstItem="Pp0-YW-3Bg" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="KWa-JF-5GS"/>
                 <constraint firstItem="iqc-QZ-Ds5" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="Mjc-zS-L1Y"/>
                 <constraint firstItem="N60-Sb-obo" firstAttribute="bottom" secondItem="1PY-gD-iJQ" secondAttribute="bottom" constant="16" id="Mnj-ZD-MnV"/>
-                <constraint firstAttribute="trailing" secondItem="1PY-gD-iJQ" secondAttribute="trailing" constant="16" id="SLG-df-vwx"/>
+                <constraint firstAttribute="trailing" secondItem="1PY-gD-iJQ" secondAttribute="trailing" constant="16" id="SLG-df-vwx">
+                    <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                </constraint>
                 <constraint firstItem="Pzm-Vp-XJF" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="SaL-Wu-jr8"/>
                 <constraint firstItem="Pzm-Vp-XJF" firstAttribute="top" secondItem="Pp0-YW-3Bg" secondAttribute="bottom" constant="8" id="UFx-Nu-Peo"/>
+                <constraint firstItem="iqc-QZ-Ds5" firstAttribute="centerX" secondItem="N60-Sb-obo" secondAttribute="centerX" id="Xa4-f4-P3N"/>
                 <constraint firstAttribute="trailing" secondItem="Pzm-Vp-XJF" secondAttribute="trailing" id="fBy-1b-t4k"/>
                 <constraint firstItem="Pp0-YW-3Bg" firstAttribute="top" secondItem="2" secondAttribute="top" id="ofz-ZG-sOg"/>
+                <constraint firstItem="1PY-gD-iJQ" firstAttribute="top" secondItem="2" secondAttribute="top" id="sft-5g-fMx"/>
                 <constraint firstItem="iqc-QZ-Ds5" firstAttribute="top" secondItem="Pzm-Vp-XJF" secondAttribute="bottom" constant="16" id="vII-8w-w9Z"/>
                 <constraint firstItem="iqc-QZ-Ds5" firstAttribute="width" secondItem="2" secondAttribute="width" multiplier="0.3" id="xJy-YK-pNb"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="N60-Sb-obo"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="sft-5g-fMx"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="constraints">
+                    <exclude reference="Mnj-ZD-MnV"/>
+                    <exclude reference="BXh-Zb-8oj"/>
+                    <include reference="sft-5g-fMx"/>
+                    <exclude reference="Mjc-zS-L1Y"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="130" y="-191"/>
         </view>
     </objects>
