@@ -64,22 +64,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqc-QZ-Ds5">
-                    <rect key="frame" x="112" y="858" width="96" height="40"/>
-                    <color key="backgroundColor" red="0.70980392156862748" green="0.73725490196078436" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
-                    <accessibility key="accessibilityConfiguration" label="EditTimeEntryDelete"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Ger-91-oYs"/>
-                    </constraints>
-                    <state key="normal" title="Delete">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="8"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PY-gD-iJQ">
                     <rect key="frame" x="187" y="0.0" width="117" height="40"/>
                     <color key="backgroundColor" red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,10 +93,10 @@
                     <state key="normal" image="icClose"/>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzm-Vp-XJF">
-                    <rect key="frame" x="0.0" y="52" width="320" height="790"/>
+                    <rect key="frame" x="0.0" y="52" width="320" height="862"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ezG-FV-3G1">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="541.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="597.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mhn-ip-f09">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
@@ -655,10 +639,12 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1KW-6P-BHL" userLabel="Scroll view bottom padding">
-                                    <rect key="frame" x="0.0" y="525.5" width="320" height="16"/>
+                                    <rect key="frame" x="0.0" y="525.5" width="320" height="72"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="16" id="W2k-cp-z3I"/>
+                                        <constraint firstAttribute="height" constant="16" id="W2k-cp-z3I">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="72"/>
+                                        </constraint>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -677,6 +663,22 @@
                         <constraint firstItem="ezG-FV-3G1" firstAttribute="leading" secondItem="Pzm-Vp-XJF" secondAttribute="leading" id="yyX-Xb-v9y"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqc-QZ-Ds5">
+                    <rect key="frame" x="112" y="593.5" width="96" height="40"/>
+                    <color key="backgroundColor" red="0.70980392156862748" green="0.73725490196078436" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
+                    <accessibility key="accessibilityConfiguration" label="EditTimeEntryDelete"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Ger-91-oYs"/>
+                    </constraints>
+                    <state key="normal" title="Delete">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -684,6 +686,7 @@
                 <constraint firstItem="f5j-k9-aHB" firstAttribute="top" secondItem="2" secondAttribute="top" constant="12" id="Aui-tE-w3a"/>
                 <constraint firstItem="1PY-gD-iJQ" firstAttribute="width" secondItem="2" secondAttribute="width" multiplier="0.55" id="BXh-Zb-8oj"/>
                 <constraint firstItem="N60-Sb-obo" firstAttribute="bottom" secondItem="iqc-QZ-Ds5" secondAttribute="bottom" constant="16" id="BpP-xf-cUP"/>
+                <constraint firstItem="N60-Sb-obo" firstAttribute="bottom" secondItem="Pzm-Vp-XJF" secondAttribute="bottom" id="IE5-wI-pRl"/>
                 <constraint firstItem="Pp0-YW-3Bg" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="KWa-JF-5GS"/>
                 <constraint firstItem="iqc-QZ-Ds5" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="Mjc-zS-L1Y"/>
                 <constraint firstItem="N60-Sb-obo" firstAttribute="bottom" secondItem="1PY-gD-iJQ" secondAttribute="bottom" constant="16" id="Mnj-ZD-MnV"/>
@@ -694,6 +697,7 @@
                 <constraint firstItem="Pzm-Vp-XJF" firstAttribute="top" secondItem="Pp0-YW-3Bg" secondAttribute="bottom" constant="8" id="UFx-Nu-Peo"/>
                 <constraint firstItem="iqc-QZ-Ds5" firstAttribute="centerX" secondItem="N60-Sb-obo" secondAttribute="centerX" id="Xa4-f4-P3N"/>
                 <constraint firstAttribute="trailing" secondItem="Pzm-Vp-XJF" secondAttribute="trailing" id="fBy-1b-t4k"/>
+                <constraint firstItem="iqc-QZ-Ds5" firstAttribute="top" secondItem="1KW-6P-BHL" secondAttribute="top" constant="16" id="oG6-d9-bNW"/>
                 <constraint firstItem="Pp0-YW-3Bg" firstAttribute="top" secondItem="2" secondAttribute="top" id="ofz-ZG-sOg"/>
                 <constraint firstItem="1PY-gD-iJQ" firstAttribute="top" secondItem="2" secondAttribute="top" id="sft-5g-fMx"/>
                 <constraint firstItem="iqc-QZ-Ds5" firstAttribute="top" secondItem="Pzm-Vp-XJF" secondAttribute="bottom" constant="16" id="vII-8w-w9Z"/>
@@ -704,18 +708,24 @@
             <viewLayoutGuide key="safeArea" id="N60-Sb-obo"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="IE5-wI-pRl"/>
                     <exclude reference="sft-5g-fMx"/>
+                    <exclude reference="oG6-d9-bNW"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=regular">
                 <mask key="constraints">
+                    <exclude reference="BpP-xf-cUP"/>
+                    <include reference="IE5-wI-pRl"/>
                     <exclude reference="Mnj-ZD-MnV"/>
                     <exclude reference="BXh-Zb-8oj"/>
                     <include reference="sft-5g-fMx"/>
                     <exclude reference="Mjc-zS-L1Y"/>
+                    <include reference="oG6-d9-bNW"/>
+                    <exclude reference="vII-8w-w9Z"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="130" y="-191"/>
+            <point key="canvasLocation" x="127" y="-167"/>
         </view>
     </objects>
     <resources>

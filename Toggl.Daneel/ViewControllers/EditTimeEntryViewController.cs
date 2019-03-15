@@ -32,6 +32,7 @@ namespace Toggl.Daneel.ViewControllers
     public partial class EditTimeEntryViewController : MvxViewController<EditTimeEntryViewModel>, IDismissableViewController
     {
         private const float nonScrollableContentHeight = 116f;
+        private const double preferredIpadHeight = 360;
 
         private IDisposable hasProjectDisposable;
         private IDisposable projectOnboardingDisposable;
@@ -380,19 +381,22 @@ namespace Toggl.Daneel.ViewControllers
 
         private void adjustHeight()
         {
-            var height = nonScrollableContentHeight + ScrollViewContent.Bounds.Height;
-            if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            var height = 524.0;
+            if (TraitCollection.HorizontalSizeClass != UIUserInterfaceSizeClass.Regular
+                || TraitCollection.VerticalSizeClass != UIUserInterfaceSizeClass.Regular)
             {
-                height += UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom;
+                height = nonScrollableContentHeight + ScrollViewContent.Bounds.Height;
+                if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+                {
+                    height += UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom;
+                }
             }
-
             var newSize = new CGSize(0, height);
             if (newSize != PreferredContentSize)
             {
                 PreferredContentSize = newSize;
                 PresentationController.ContainerViewWillLayoutSubviews();
             }
-
             ScrollView.ScrollEnabled = ScrollViewContent.Bounds.Height > ScrollView.Bounds.Height;
         }
     }
