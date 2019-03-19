@@ -65,6 +65,12 @@ namespace Toggl.Daneel.ViewControllers
         {
             base.ViewWillAppear(animated);
             TextField.BecomeFirstResponder();
+
+            BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+            {
+               PreferredContentSize = new CoreGraphics.CGSize(0, 500);
+            }
         }
 
         public async Task<bool> Dismiss()
@@ -83,6 +89,18 @@ namespace Toggl.Daneel.ViewControllers
         {
             BottomConstraint.Constant = 0;
             UIView.Animate(Animation.Timings.EnterTiming, () => View.LayoutIfNeeded());
+        }
+
+        public override void ViewDidLayoutSubviews()
+        {
+            base.ViewDidLayoutSubviews();
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
+        }
+
+        public override void ViewWillLayoutSubviews()
+        {
+            base.ViewWillLayoutSubviews();
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
         }
     }
 }

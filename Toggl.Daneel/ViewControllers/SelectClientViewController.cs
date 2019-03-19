@@ -53,14 +53,24 @@ namespace Toggl.Daneel.ViewControllers
             tableViewSource.Rx().ModelSelected()
                 .Subscribe(ViewModel.SelectClient.Inputs)
                 .DisposedBy(DisposeBag);
-
-            SearchTextField.BecomeFirstResponder();
         }
 
         public async Task<bool> Dismiss()
         {
             ViewModel.Close.Execute(Unit.Default);
             return true;
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            SearchTextField.BecomeFirstResponder();
+
+            BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+            {
+               PreferredContentSize = new CoreGraphics.CGSize(0, 500);
+            }
         }
 
         protected override void KeyboardWillShow(object sender, UIKeyboardEventArgs e)
@@ -73,6 +83,18 @@ namespace Toggl.Daneel.ViewControllers
         {
             BottomConstraint.Constant = 0;
             UIView.Animate(Animation.Timings.EnterTiming, () => View.LayoutIfNeeded());
+        }
+
+        public override void ViewDidLayoutSubviews()
+        {
+            base.ViewDidLayoutSubviews();
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
+        }
+
+        public override void ViewWillLayoutSubviews()
+        {
+            base.ViewWillLayoutSubviews();
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using CoreGraphics;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Commands;
 using MvvmCross.Platforms.Ios.Binding;
@@ -16,7 +17,7 @@ namespace Toggl.Daneel.ViewControllers
     [ModalCardPresentation]
     public sealed partial class SelectProjectViewController : KeyboardAwareViewController<SelectProjectViewModel>, IDismissableViewController
     {
-        public SelectProjectViewController() 
+        public SelectProjectViewController()
             : base(nameof(SelectProjectViewController))
         {
         }
@@ -28,7 +29,7 @@ namespace Toggl.Daneel.ViewControllers
             TitleLabel.Text = Resources.Projects;
             TextField.Placeholder = Resources.AddFilterProjects;
             EmptyStateLabel.Text = Resources.EmptyProjectText;
-            
+
             var source = new SelectProjectTableViewSource(ProjectsTableView);
             ProjectsTableView.Source = source;
             source.ToggleTasksCommand = new MvxCommand<ProjectSuggestion>(toggleTaskSuggestions);
@@ -63,7 +64,7 @@ namespace Toggl.Daneel.ViewControllers
             bindingSet.Bind(source)
                       .For(v => v.Text)
                       .To(vm => vm.Text);
-            
+
             //Text
             bindingSet.Bind(TextField).To(vm => vm.Text);
 
@@ -76,10 +77,20 @@ namespace Toggl.Daneel.ViewControllers
             bindingSet.Bind(source)
                       .For(s => s.SelectionChangedCommand)
                       .To(vm => vm.SelectProjectCommand);
-            
-            bindingSet.Apply();
 
+            bindingSet.Apply();
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
             TextField.BecomeFirstResponder();
+
+            BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+            {
+               PreferredContentSize = new CoreGraphics.CGSize(0, 500);
+            }
         }
 
         public async Task<bool> Dismiss()
@@ -98,6 +109,18 @@ namespace Toggl.Daneel.ViewControllers
         {
             BottomConstraint.Constant = 0;
             UIView.Animate(Animation.Timings.EnterTiming, () => View.LayoutIfNeeded());
+        }
+
+        public override void ViewDidLayoutSubviews()
+        {
+            base.ViewDidLayoutSubviews();
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
+        }
+
+        public override void ViewWillLayoutSubviews()
+        {
+            base.ViewWillLayoutSubviews();
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
         }
 
         private void toggleTaskSuggestions(ProjectSuggestion parameter)
