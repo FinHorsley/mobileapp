@@ -179,7 +179,10 @@ namespace Toggl.Daneel.Presentation.Transition
                     height = UIScreen.MainScreen.Bounds.Height - topiPadMargin - keyboardHeight;
                 }
 
-                height -= iPadStackModalViewSpacing * levelsOfModalViews();
+                if (height > iPadMaxHeight - iPadStackModalViewSpacing * levelsOfModalViews())
+                {
+                    height -= iPadStackModalViewSpacing * levelsOfModalViews();
+                }
 
                 return new CGSize(width, height);
             }
