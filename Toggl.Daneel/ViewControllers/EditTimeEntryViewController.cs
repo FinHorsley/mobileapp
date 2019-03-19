@@ -296,6 +296,7 @@ namespace Toggl.Daneel.ViewControllers
                 .For(v => v.BindTags())
                 .To<EditTimeEntryViewModel>(vm => vm.Tags)
                 .Apply();
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
         }
 
         public override void ViewWillLayoutSubviews()
@@ -312,6 +313,8 @@ namespace Toggl.Daneel.ViewControllers
             {
                 ConfirmButton.SetTitleColor(Color.EditTimeEntry.MobileConfirmButtonText.ToNativeColor(), UIControlState.Normal);
             }
+
+            View.ClipsToBounds |= UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad;
         }
 
         public async Task<bool> Dismiss()
@@ -381,7 +384,7 @@ namespace Toggl.Daneel.ViewControllers
 
         private void adjustHeight()
         {
-            var height = 524.0;
+            var height = 500.0;
             if (TraitCollection.HorizontalSizeClass != UIUserInterfaceSizeClass.Regular
                 || TraitCollection.VerticalSizeClass != UIUserInterfaceSizeClass.Regular)
             {
