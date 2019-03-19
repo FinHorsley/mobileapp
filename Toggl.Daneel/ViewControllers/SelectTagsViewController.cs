@@ -11,13 +11,15 @@ using Toggl.Daneel.Extensions.Reactive;
 using Toggl.Daneel.Views.Tag;
 using Toggl.Daneel.ViewSources;
 using Toggl.Multivac.Extensions;
+using System.Reactive;
+using System.Linq;
 
 namespace Toggl.Daneel.ViewControllers
 {
     [ModalCardPresentation]
     public sealed partial class SelectTagsViewController : KeyboardAwareViewController<SelectTagsViewModel>, IDismissableViewController
     {
-        private const double preferredIpadHeight = 500;
+        private const double headerHeight = 100;
 
         public SelectTagsViewController()
             : base(nameof(SelectTagsViewController))
@@ -34,9 +36,24 @@ namespace Toggl.Daneel.ViewControllers
                 .Subscribe(ViewModel.SelectTag.Inputs)
                 .DisposedBy(DisposeBag);
 
-            ViewModel.Tags
+            var tagsReplay = ViewModel.Tags.Replay();
+
+            tagsReplay
                 .Subscribe(TagsTableView.Rx().ReloadItems(tableViewSource))
                 .DisposedBy(DisposeBag);
+
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+            {
+                tagsReplay
+                    .Select((tags) =>
+                    {
+                        return new CoreGraphics.CGSize(0, (tags.ToList().Count() * SelectTagsTableViewSource.RowHeight) + headerHeight);
+                    })
+                    .Subscribe(this.Rx().PreferredContentSize())
+                    .DisposedBy(DisposeBag);
+            }
+
+            tagsReplay.Connect();
 
             ViewModel.IsEmpty
                 .Subscribe(EmptyStateImage.Rx().IsVisible())
@@ -61,18 +78,14 @@ namespace Toggl.Daneel.ViewControllers
             TextField.Rx().Text()
                 .Subscribe(ViewModel.FilterText)
                 .DisposedBy(DisposeBag);
+
+            BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
         }
 
         public override void ViewWillAppear(bool animated)
         {
             base.ViewWillAppear(animated);
             TextField.BecomeFirstResponder();
-
-            BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
-            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
-            {
-               PreferredContentSize = new CoreGraphics.CGSize(0, preferredIpadHeight);
-            }
         }
 
         public async Task<bool> Dismiss()
