@@ -19,6 +19,8 @@ namespace Toggl.Daneel.ViewControllers
     [ModalCardPresentation]
     public partial class SelectClientViewController : KeyboardAwareViewController<SelectClientViewModel>, IDismissableViewController
     {
+        private const double preferredIpadHeight = 500;
+
         public SelectClientViewController()
             : base(nameof(SelectClientViewController))
         {
@@ -69,7 +71,7 @@ namespace Toggl.Daneel.ViewControllers
             BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
             if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
             {
-               PreferredContentSize = new CoreGraphics.CGSize(0, 500);
+               PreferredContentSize = new CoreGraphics.CGSize(0, preferredIpadHeight);
             }
         }
 

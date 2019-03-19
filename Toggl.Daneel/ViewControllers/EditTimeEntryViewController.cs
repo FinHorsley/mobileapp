@@ -32,7 +32,7 @@ namespace Toggl.Daneel.ViewControllers
     public partial class EditTimeEntryViewController : MvxViewController<EditTimeEntryViewModel>, IDismissableViewController
     {
         private const float nonScrollableContentHeight = 116f;
-        private const double preferredIpadHeight = 360;
+        private const double preferredIpadHeight = 500;
 
         private IDisposable hasProjectDisposable;
         private IDisposable projectOnboardingDisposable;
@@ -384,7 +384,7 @@ namespace Toggl.Daneel.ViewControllers
 
         private void adjustHeight()
         {
-            var height = 500.0;
+            var height = preferredIpadHeight;
             if (TraitCollection.HorizontalSizeClass != UIUserInterfaceSizeClass.Regular
                 || TraitCollection.VerticalSizeClass != UIUserInterfaceSizeClass.Regular)
             {

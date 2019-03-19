@@ -17,6 +17,8 @@ namespace Toggl.Daneel.ViewControllers
     [ModalCardPresentation]
     public sealed partial class SelectTagsViewController : KeyboardAwareViewController<SelectTagsViewModel>, IDismissableViewController
     {
+        private const double preferredIpadHeight = 500;
+
         public SelectTagsViewController()
             : base(nameof(SelectTagsViewController))
         {
@@ -69,7 +71,7 @@ namespace Toggl.Daneel.ViewControllers
             BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
             if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
             {
-               PreferredContentSize = new CoreGraphics.CGSize(0, 500);
+               PreferredContentSize = new CoreGraphics.CGSize(0, preferredIpadHeight);
             }
         }
 
