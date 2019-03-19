@@ -1180,6 +1180,7 @@
     <Compile Include="Cells\TimeEntriesLog\TimeEntriesLogViewCell.designer.cs">
       <DependentUpon>TimeEntriesLogViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\Reactive\UIViewControllerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Toggl.Foundation.MvvmCross\Toggl.Foundation.MvvmCross.csproj">
