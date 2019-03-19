@@ -20,6 +20,7 @@ namespace Toggl.Daneel.ViewControllers
     public sealed partial class SelectTagsViewController : KeyboardAwareViewController<SelectTagsViewModel>, IDismissableViewController
     {
         private const double headerHeight = 100;
+        private const double placeholderHeight = 250;
 
         public SelectTagsViewController()
             : base(nameof(SelectTagsViewController))
@@ -47,7 +48,11 @@ namespace Toggl.Daneel.ViewControllers
                 tagsReplay
                     .Select((tags) =>
                     {
-                        return new CoreGraphics.CGSize(0, (tags.ToList().Count() * SelectTagsTableViewSource.RowHeight) + headerHeight);
+                        var count = tags.ToList().Count();
+                        var contentHeight = count > 0 
+                            ? count * SelectTagsTableViewSource.RowHeight 
+                            : placeholderHeight;
+                        return new CoreGraphics.CGSize(0, contentHeight + headerHeight);
                     })
                     .Subscribe(this.Rx().PreferredContentSize())
                     .DisposedBy(DisposeBag);
