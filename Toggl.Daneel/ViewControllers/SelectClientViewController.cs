@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reactive;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using MvvmCross.Binding.BindingContext;
 using Toggl.Daneel.Extensions;
@@ -19,7 +21,7 @@ namespace Toggl.Daneel.ViewControllers
     [ModalCardPresentation]
     public partial class SelectClientViewController : KeyboardAwareViewController<SelectClientViewModel>, IDismissableViewController
     {
-        private const double preferredIpadHeight = 500;
+        private const double headerHeight = 100;
 
         public SelectClientViewController()
             : base(nameof(SelectClientViewController))
@@ -40,9 +42,24 @@ namespace Toggl.Daneel.ViewControllers
             var tableViewSource = new ClientTableViewSource(SuggestionsTableView);
             SuggestionsTableView.Source = tableViewSource;
 
-            ViewModel.Clients
+            var clientsReplay = ViewModel.Clients.Replay();
+
+            clientsReplay
                 .Subscribe(SuggestionsTableView.Rx().ReloadItems(tableViewSource))
                 .DisposedBy(DisposeBag);
+
+            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+            {
+                clientsReplay
+                    .Select((clients) =>
+                    {
+                        return new CoreGraphics.CGSize(0, (clients.ToList().Count() * ClientTableViewSource.RowHeight) + headerHeight);
+                    })
+                    .Subscribe(this.Rx().PreferredContentSize())
+                    .DisposedBy(DisposeBag);
+            }
+
+            clientsReplay.Connect();
 
             CloseButton.Rx()
                 .BindAction(ViewModel.Close)
@@ -55,6 +72,8 @@ namespace Toggl.Daneel.ViewControllers
             tableViewSource.Rx().ModelSelected()
                 .Subscribe(ViewModel.SelectClient.Inputs)
                 .DisposedBy(DisposeBag);
+
+            BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
         }
 
         public async Task<bool> Dismiss()
@@ -67,12 +86,6 @@ namespace Toggl.Daneel.ViewControllers
         {
             base.ViewWillAppear(animated);
             SearchTextField.BecomeFirstResponder();
-
-            BottomConstraint.Active |= UIDevice.CurrentDevice.UserInterfaceIdiom != UIUserInterfaceIdiom.Pad;
-            if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
-            {
-               PreferredContentSize = new CoreGraphics.CGSize(0, preferredIpadHeight);
-            }
         }
 
         protected override void KeyboardWillShow(object sender, UIKeyboardEventArgs e)
