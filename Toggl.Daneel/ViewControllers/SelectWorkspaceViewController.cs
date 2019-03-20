@@ -23,7 +23,7 @@ namespace Toggl.Daneel.ViewControllers
     public partial class SelectWorkspaceViewController : ReactiveViewController<SelectWorkspaceViewModel>, IDismissableViewController
     {
         private const int rowHeight = 64;
-        private const double preferredIpadHeight = 500;
+        private const double headerHeight = 54;
 
         public SelectWorkspaceViewController()
             : base(nameof(SelectWorkspaceViewController))
@@ -53,15 +53,9 @@ namespace Toggl.Daneel.ViewControllers
             source.Rx().ModelSelected()
                 .Subscribe(ViewModel.SelectWorkspace.Inputs)
                 .DisposedBy(DisposeBag);
-        }
 
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
             if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
-            {
-               PreferredContentSize = new CoreGraphics.CGSize(0, preferredIpadHeight);
-            }
+                PreferredContentSize = new CoreGraphics.CGSize(0, headerHeight + (ViewModel.Workspaces.Count * rowHeight));
         }
 
         public override void ViewDidLayoutSubviews()
