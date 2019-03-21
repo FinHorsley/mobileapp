@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -41,24 +41,23 @@
                                             <rect key="frame" x="0.0" y="9" width="6" height="6"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Marketing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebs-ES-eMx">
-                                            <rect key="frame" x="8" y="3" width="274.33333333333331" height="18"/>
+                                            <rect key="frame" x="8" y="3" width="68.666666666666671" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.2932400173611111" green="0.61116536458333337" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFj-I8-nFs">
-                                            <rect key="frame" x="286.33333333333331" y="3" width="37.333333333333314" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFj-I8-nFs">
+                                            <rect key="frame" x="80.666666666666686" y="3" width="37.333333333333329" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.36862745098039218" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="ebs-ES-eMx" firstAttribute="centerY" secondItem="KRH-VE-lUm" secondAttribute="centerY" id="5EY-ka-Usf"/>
                                         <constraint firstItem="ebs-ES-eMx" firstAttribute="leading" secondItem="ztf-Qj-KY1" secondAttribute="trailing" constant="2" id="Fs0-3G-aZh"/>
                                         <constraint firstItem="PFj-I8-nFs" firstAttribute="leading" secondItem="ebs-ES-eMx" secondAttribute="trailing" constant="4" id="ORX-7G-DUZ"/>
-                                        <constraint firstAttribute="trailing" secondItem="PFj-I8-nFs" secondAttribute="trailing" constant="87.5" id="a7E-Dd-Jme"/>
                                         <constraint firstItem="ztf-Qj-KY1" firstAttribute="leading" secondItem="KRH-VE-lUm" secondAttribute="leading" id="osF-DF-Fpa"/>
                                         <constraint firstItem="PFj-I8-nFs" firstAttribute="centerY" secondItem="KRH-VE-lUm" secondAttribute="centerY" id="qc0-yy-bP1"/>
                                         <constraint firstItem="ztf-Qj-KY1" firstAttribute="centerY" secondItem="KRH-VE-lUm" secondAttribute="centerY" id="zZ6-Gq-YCT"/>
