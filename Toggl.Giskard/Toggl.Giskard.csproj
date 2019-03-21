@@ -291,6 +291,7 @@
     <Compile Include="Activities\SelectCountryActivity.ViewBinds.cs">
       <DependentUpon>SelectCountryActivity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Activities\SelectProjectActivity.ViewBinds.cs" />
     <Compile Include="Activities\SelectTagsActivity.cs" />
     <Compile Include="Activities\SendFeedbackActivity.cs" />
     <Compile Include="Activities\SendFeedbackActivity.ViewBinds.cs">
@@ -386,7 +387,6 @@
     <Compile Include="Views\EditDuration\WheelBackgroundView.cs" />
     <Compile Include="Views\EditDuration\WheelForegroundView.cs" />
     <Compile Include="Views\ReportsCalendarView.cs" />
-    <Compile Include="Views\SelectProjectRecyclerView.cs" />
     <Compile Include="Adapters\MainRecyclerAdapter.cs" />
     <Compile Include="TemplateSelectors\SelectProjectTemplateSelector.cs" />
     <Compile Include="Extensions\LayoutParamsExtensions.cs" />
@@ -549,10 +549,6 @@
     <AndroidResource Include="Resources\color\BlueTextColor.xml" />
     <AndroidResource Include="Resources\drawable\Dot.xml" />
     <AndroidResource Include="Resources\layout\AboutActivity.axml" />
-    <AndroidResource Include="Resources\layout\EntityCreationActivityCell.axml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\SelectTagsActivity.axml" />
     <AndroidResource Include="Resources\layout\SelectProjectActivity.axml" />
     <AndroidResource Include="Resources\layout\SelectProjectActivityProjectCell.axml" />
