@@ -236,13 +236,35 @@
                                     <rect key="frame" x="32" y="0.0" width="224" height="224"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="UPo-1v-886" secondAttribute="height" multiplier="1:1" id="5x7-W2-T2n"/>
+                                        <constraint firstAttribute="height" constant="300" id="W2i-A5-f4t"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="W2i-A5-f4t"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <mask key="constraints">
+                                            <include reference="W2i-A5-f4t"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uR-7c-EpB" customClass="WheelForegroundView">
                                     <rect key="frame" x="32" y="0.0" width="224" height="224"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="5uR-7c-EpB" secondAttribute="height" multiplier="1:1" id="S1t-cB-fCd"/>
+                                        <constraint firstAttribute="height" constant="300" id="erK-yJ-xZk"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="erK-yJ-xZk"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <mask key="constraints">
+                                            <include reference="erK-yJ-xZk"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8e-aL-HzQ">
                                     <rect key="frame" x="81" y="96" width="126" height="32"/>
@@ -285,11 +307,18 @@
                                 <constraint firstAttribute="trailing" secondItem="5uR-7c-EpB" secondAttribute="trailing" constant="32" id="Jgp-LJ-BX3"/>
                                 <constraint firstItem="UPo-1v-886" firstAttribute="centerY" secondItem="urI-dQ-w1K" secondAttribute="centerY" id="QZU-KA-abx"/>
                                 <constraint firstItem="5uR-7c-EpB" firstAttribute="top" secondItem="urI-dQ-w1K" secondAttribute="top" id="UgV-sF-umX"/>
+                                <constraint firstItem="5uR-7c-EpB" firstAttribute="centerX" secondItem="urI-dQ-w1K" secondAttribute="centerX" id="Zfk-Gh-unP"/>
                                 <constraint firstItem="A8e-aL-HzQ" firstAttribute="centerY" secondItem="urI-dQ-w1K" secondAttribute="centerY" id="elA-bV-Fh6"/>
                                 <constraint firstAttribute="bottom" secondItem="5uR-7c-EpB" secondAttribute="bottom" id="lzW-BW-O1e"/>
                                 <constraint firstItem="UPo-1v-886" firstAttribute="height" secondItem="5uR-7c-EpB" secondAttribute="height" id="tZz-QS-cHe"/>
                                 <constraint firstItem="UPo-1v-886" firstAttribute="centerX" secondItem="urI-dQ-w1K" secondAttribute="centerX" id="zv0-lh-RvJ"/>
                             </constraints>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <mask key="constraints">
+                                    <exclude reference="8IG-SO-Tml"/>
+                                    <exclude reference="Jgp-LJ-BX3"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                 </stackView>
