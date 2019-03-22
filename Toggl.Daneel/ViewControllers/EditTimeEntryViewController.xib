@@ -27,6 +27,7 @@
                 <outlet property="DeleteButton" destination="iqc-QZ-Ds5" id="wUP-Jl-mPO"/>
                 <outlet property="DeleteButtonBottomConstraint" destination="BpP-xf-cUP" id="AbA-tp-mC5"/>
                 <outlet property="DescriptionTextView" destination="EBA-rV-Dfi" id="2NQ-aO-MK3"/>
+                <outlet property="DescriptionView" destination="tmZ-oe-hre" id="mMF-Q3-qQe"/>
                 <outlet property="DurationDescriptionLabel" destination="JUC-PY-YeK" id="AFg-DF-X3a"/>
                 <outlet property="DurationLabel" destination="EW6-cw-AXE" id="2Jc-0e-dzV"/>
                 <outlet property="DurationView" destination="QGD-ja-9Fl" id="rzp-lM-zsV"/>

@@ -32,7 +32,7 @@ namespace Toggl.Daneel.ViewControllers
     public partial class EditTimeEntryViewController : MvxViewController<EditTimeEntryViewModel>, IDismissableViewController
     {
         private const float nonScrollableContentHeight = 116f;
-        private const double preferredIpadHeight = 500;
+        private const double preferredIpadHeight = 395;
 
         private IDisposable hasProjectDisposable;
         private IDisposable projectOnboardingDisposable;
@@ -384,7 +384,7 @@ namespace Toggl.Daneel.ViewControllers
 
         private void adjustHeight()
         {
-            var height = preferredIpadHeight;
+            double height;
             if (TraitCollection.HorizontalSizeClass != UIUserInterfaceSizeClass.Regular
                 || TraitCollection.VerticalSizeClass != UIUserInterfaceSizeClass.Regular)
             {
@@ -393,6 +393,15 @@ namespace Toggl.Daneel.ViewControllers
                 {
                     height += UIApplication.SharedApplication.KeyWindow.SafeAreaInsets.Bottom;
                 }
+            }
+            else
+            {
+                var errorHeight = ErrorView.Hidden 
+                    ? 0 
+                    : ErrorView.SizeThatFits(UIView.UILayoutFittingCompressedSize).Height;
+                var titleHeight = DescriptionView.SizeThatFits(UIView.UILayoutFittingCompressedSize).Height;
+                var isBillableHeight = BillableView.Hidden ? 0 : 56;
+                height = preferredIpadHeight + errorHeight + titleHeight + isBillableHeight;
             }
             var newSize = new CGSize(0, height);
             if (newSize != PreferredContentSize)
