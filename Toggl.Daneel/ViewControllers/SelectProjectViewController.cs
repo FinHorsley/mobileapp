@@ -53,7 +53,6 @@ namespace Toggl.Daneel.ViewControllers
                         var numberOfSuggestions = sections.Select(s => s.Items.Count()).Sum();
                         return (numberOfSections, numberOfSuggestions);
                     })
-                    .Debug()
                     .Select((result) =>
                     {
                         var (numberOfSections, numberOfSuggestions) = result;
