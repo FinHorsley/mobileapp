@@ -19,8 +19,8 @@ namespace Toggl.Daneel.Suggestions
     {
         private const float titleSize = 12;
         private const float sideMargin = 16;
-        private const float suggestionHeightMobile = 64;
-        private const float suggestionHeightTablet = 48;
+        private const float suggestionHeightCompact = 64;
+        private const float suggestionHeightRegular = 48;
         private const float distanceAboveTitleLabel = 20;
         private const float distanceBelowTitleLabel = 16;
         private const float distanceBetweenSuggestions = 12;
@@ -68,8 +68,8 @@ namespace Toggl.Daneel.Suggestions
 
             suggestionHeight = TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular
                                && TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
-                               ? suggestionHeightTablet
-                               : suggestionHeightMobile;
+                               ? suggestionHeightRegular
+                               : suggestionHeightCompact;
 
             for (int i = 0; i < suggestions.Length; i++)
             {

@@ -17,8 +17,8 @@ namespace Toggl.Daneel.ViewSources
 {
     public sealed class TimeEntriesLogViewSource : ReactiveSectionedListTableViewSource<TimeEntryViewModel, TimeEntriesLogViewCell>
     {
-        private const int rowHeightMobile = 64;
-        private const int rowHeightTablet = 48;
+        private const int rowHeightCompact = 64;
+        private const int rowHeightRegular = 48;
         private const int headerHeight = 48;
 
         private readonly ITimeService timeService;
@@ -82,15 +82,15 @@ namespace Toggl.Daneel.ViewSources
         public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath) =>
             tableView.TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular
             && tableView.TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
-            ? rowHeightTablet
-            : rowHeightMobile;
+            ? rowHeightRegular
+            : rowHeightCompact;
 
         // It needs this method, otherwise the ContentOffset will reset to 0 everytime the table reloads. ¯\_(ツ)_/¯
         public override nfloat EstimatedHeight(UITableView tableView, NSIndexPath indexPath) =>
             tableView.TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular
             && tableView.TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
-            ? rowHeightTablet
-            : rowHeightMobile;
+            ? rowHeightRegular
+            : rowHeightCompact;
 
         public override UITableViewRowAction[] EditActionsForRow(UITableView tableView, NSIndexPath indexPath)
         {
