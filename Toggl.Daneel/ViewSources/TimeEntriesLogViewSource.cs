@@ -80,15 +80,13 @@ namespace Toggl.Daneel.ViewSources
         public override nfloat GetHeightForFooter(UITableView tableView, nint section) => SpaceBetweenSections;
 
         public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath) =>
-            tableView.TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular
-            && tableView.TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
+            tableView.TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
             ? rowHeightRegular
             : rowHeightCompact;
 
         // It needs this method, otherwise the ContentOffset will reset to 0 everytime the table reloads. ¯\_(ツ)_/¯
         public override nfloat EstimatedHeight(UITableView tableView, NSIndexPath indexPath) =>
-            tableView.TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular
-            && tableView.TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
+            tableView.TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
             ? rowHeightRegular
             : rowHeightCompact;
 

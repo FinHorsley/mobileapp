@@ -66,8 +66,7 @@ namespace Toggl.Daneel.Suggestions
                 }
             }
 
-            suggestionHeight = TraitCollection.VerticalSizeClass == UIUserInterfaceSizeClass.Regular
-                               && TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
+            suggestionHeight = TraitCollection.HorizontalSizeClass == UIUserInterfaceSizeClass.Regular
                                ? suggestionHeightRegular
                                : suggestionHeightCompact;
 
