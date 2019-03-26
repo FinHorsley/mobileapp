@@ -44,7 +44,8 @@ namespace Toggl.Daneel.Views
         {
             base.AwakeFromNib();
 
-            FadeView.FadeRight = true;
+            DescriptionFadeView.FadeRight = true;
+            ProjectTaskClientFadeView.FadeRight = true;
 
             TimeLabel.Font = TimeLabel.Font.GetMonospacedDigitFont();
 
