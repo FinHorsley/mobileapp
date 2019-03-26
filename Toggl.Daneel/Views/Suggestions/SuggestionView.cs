@@ -72,7 +72,8 @@ namespace Toggl.Daneel
                 .Image
                 .ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
 
-            FadeView.FadeRight = true;
+            DescriptionFadeView.FadeRight = true;
+            ProjectFadeView.FadeRight = true;
 
             if (Suggestion == null)
                 Hidden = true;

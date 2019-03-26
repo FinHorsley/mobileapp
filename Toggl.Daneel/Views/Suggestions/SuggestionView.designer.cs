@@ -16,13 +16,16 @@ namespace Toggl.Daneel
 		UIKit.UILabel ClientLabel { get; set; }
 
 		[Outlet]
+		Toggl.Daneel.Views.FadeView DescriptionFadeView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel DescriptionLabel { get; set; }
 
 		[Outlet]
-		Toggl.Daneel.Views.FadeView FadeView { get; set; }
+		UIKit.UIImageView ProjectDot { get; set; }
 
 		[Outlet]
-		UIKit.UIImageView ProjectDot { get; set; }
+		Toggl.Daneel.Views.FadeView ProjectFadeView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel ProjectLabel { get; set; }
@@ -42,9 +45,14 @@ namespace Toggl.Daneel
 				DescriptionLabel = null;
 			}
 
-			if (FadeView != null) {
-				FadeView.Dispose ();
-				FadeView = null;
+			if (DescriptionFadeView != null) {
+				DescriptionFadeView.Dispose ();
+				DescriptionFadeView = null;
+			}
+
+			if (ProjectFadeView != null) {
+				ProjectFadeView.Dispose ();
+				ProjectFadeView = null;
 			}
 
 			if (ProjectDot != null) {
