@@ -83,7 +83,7 @@ namespace Toggl.Daneel.ViewControllers
                 .DisposedBy(disposeBag);
 
             SetEndButton.Rx()
-                .BindAction(ViewModel.EditStopTime)
+                .BindAction(ViewModel.StopTimeEntry)
                 .DisposedBy(disposeBag);
 
             // Visibility
